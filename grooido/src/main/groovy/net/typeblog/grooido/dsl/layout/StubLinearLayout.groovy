@@ -50,4 +50,6 @@ class StubLinearLayout<L extends BaseLayoutParams> extends BaseViewGroup<LinearL
 	def getVertical() {
 		LinearLayout.VERTICAL
 	}
+
+	// TODO Finish this class
 }

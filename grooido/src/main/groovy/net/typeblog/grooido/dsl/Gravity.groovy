@@ -24,4 +24,42 @@ trait Gravity {
 	int getCenterHorizontal() {
 		CENTER_HORIZONTAL
 	}
+
+	int getBottom() {
+		BOTTOM
+	}
+
+	int getTop() {
+		TOP
+	}
+
+	int getLeft() {
+		LEFT
+	}
+
+	int getRight() {
+		RIGHT
+	}
+
+	int getStart() {
+		START
+	}
+
+	int getEnd() {
+		END
+	}
+
+	int getFill() {
+		FILL
+	}
+
+	int getFillHorizontal() {
+		FILL_HORIZONTAL
+	}
+
+	int getFillVertical() {
+		FILL_VERTICAL
+	}
+
+	// TODO Finish this class
 }

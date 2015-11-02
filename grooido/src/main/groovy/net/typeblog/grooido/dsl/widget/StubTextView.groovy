@@ -29,4 +29,6 @@ class StubTextView<L extends BaseLayoutParams> extends BaseView<TextView, L> {
 	def text(int id) {
 		mTextView.text = id
 	}
+
+	// TODO Finish this class
 }
