@@ -1,0 +1,7 @@
+<resources>
+	<string name="grooido">Grooido</string>
+	<string name="hello">Hello, Grooido!</string>
+	<string name="centered">I am centered!</string>
+	<string name="twdp">20dp</string>
+	<string name="twpx">20px</string>
+</resources>

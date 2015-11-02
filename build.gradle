@@ -1,0 +1,16 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+
+	dependencies {
+		classpath 'com.android.tools.build:gradle:1.1.0'
+		classpath 'org.codehaus.groovy:gradle-groovy-android-plugin:0.3.6'
+	}
+}
+
+allprojects {
+	repositories {
+		jcenter()
+	}
+}
