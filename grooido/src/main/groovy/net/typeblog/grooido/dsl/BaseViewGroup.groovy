@@ -12,6 +12,10 @@ import groovy.transform.CompileStatic
 import net.typeblog.grooido.dsl.widget.StubTextView
 import net.typeblog.grooido.dsl.layout.StubLinearLayout
 
+/*
+ * Base wrapper class for ViewGroup.
+ * Only for being delegates.
+ */
 @CompileStatic
 abstract class BaseViewGroup<V extends ViewGroup, L extends BaseLayoutParams, T extends BaseLayoutParams> extends BaseView<V, L> {
 	Class<T> mMyLp
@@ -29,10 +33,20 @@ abstract class BaseViewGroup<V extends ViewGroup, L extends BaseLayoutParams, T 
 		mViewGroup = mView as V
 	}
 
+	/*
+	 * Create a new android.widget.LinearLayout and add as a child.
+	 * @param cl The closure whose delegate will be set to a net.typeblog.grooido.dsl.layout.StubLinearLayout for configuration.
+	 * @return The created layout
+	 */
 	LinearLayout linearLayout(@DelegatesTo(strategy = Closure.DELEGATE_FIRST, value = StubLinearLayout) Closure cl) {
 		addView(StubLinearLayout.class, cl) as LinearLayout
 	}
 
+	/*
+	 * Create a new android.widget.TextView and add as a child.
+	 * @param cl The closure whose delegate will be set to a new net.typeblog.grooido.dsl.widget.StubTextView for configuration.
+	 * @return The created View.
+	 */
 	TextView textView(@DelegatesTo(strategy = Closure.DELEGATE_FIRST, value = StubTextView) Closure cl) {
 		addView(StubTextView.class, cl) as TextView
 	}

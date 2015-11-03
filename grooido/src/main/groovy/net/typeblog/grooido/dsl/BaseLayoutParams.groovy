@@ -7,6 +7,10 @@ import android.view.ViewGroup.LayoutParams as LP
 
 import groovy.transform.CompileStatic
 
+/*
+ * Base wrapper class for LayoutParams.
+ * Only for being delegates. (including its subclasses)
+ */
 @CompileStatic
 abstract class BaseLayoutParams<T extends LP> implements Dimens {
 	protected final T mParams
@@ -29,12 +33,25 @@ abstract class BaseLayoutParams<T extends LP> implements Dimens {
 		}
 	}
 
+	/*
+	 * Set the width.
+	 * Special values: matchParent and wrapContent. Both are properties of this class. (Directly available in the caller Closure)
+	 * @param w The width
+	 * @return An object with a method 'of(String unit)'. The method must be called to apply the value except you are using special values. See net.typeblog.grooido.dsl.Dimensions for available units.
+	 * 	This class implements Dimensions so all dimensions are properties of this class.
+	 */
 	def width(int w) {
 		return makeDimenStub(w) { int d ->
 			mParams.width = d
 		}
 	}
 
+	/*
+	 * Set the height.
+	 * Special values: same as in width()
+	 * @param h The height
+	 * @return Same as width()
+	 */
 	def height(int h) {
 		return makeDimenStub(h) { int d ->
 			mParams.height = d

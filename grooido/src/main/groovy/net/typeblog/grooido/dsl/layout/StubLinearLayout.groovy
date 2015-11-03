@@ -10,10 +10,17 @@ import net.typeblog.grooido.dsl.BaseViewGroup
 import net.typeblog.grooido.dsl.BaseLayoutParams
 import net.typeblog.grooido.dsl.Gravity
 
+/*
+ * Wrapper class of android.widget.LinearLayout.
+ * Available as delegates to Closures.
+ */
 @CompileStatic
 class StubLinearLayout<L extends BaseLayoutParams> extends BaseViewGroup<LinearLayout, L, StubLinearLayout.LayoutParams> {
 	private LinearLayout mLayout
 
+	/*
+	 * Wrapper class of android.widget.LinearLayout.LayoutParams
+	 */
 	@CompileStatic
 	static class LayoutParams extends BaseLayoutParams<LP> implements Gravity {
 		LayoutParams(Context context, LP params) {
@@ -24,6 +31,12 @@ class StubLinearLayout<L extends BaseLayoutParams> extends BaseViewGroup<LinearL
 			super(context, LP.class)
 		}
 
+		/*
+		 * Set the gravity.
+		 * See trait net.typeblog.groodo.dsl.Gravity for available gravities.
+		 * This class implements the trait so all gravities are properties of this class and available directly in caller closures.
+		 * @param gravity The Gravity
+		 */
 		def gravity(int gravity) {
 			mParams.gravity = gravity
 		}
@@ -39,6 +52,10 @@ class StubLinearLayout<L extends BaseLayoutParams> extends BaseViewGroup<LinearL
 		mLayout = mView as LinearLayout
 	}
 
+	/*
+	 * Set the orientation of this layout.
+	 * @param o The orientation (horizontal or vertical)
+	 */
 	def orientation(int o) {
 		mLayout.orientation = o
 	}
